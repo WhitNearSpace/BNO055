@@ -31,7 +31,7 @@ void BNO055::setMode(int modeCode) {
     _i2c->read(_addr, buff, 1);
     code = buff[0];
 
-    if(modeCode == BNO055_MODE_NDOF) {
+    if(modeCode == BNO055_MODE_NDOF) { // Set NDOF fusion mode
         code = code & 0xF0;
         code = code | 0x0C;
     }

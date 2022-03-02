@@ -14,13 +14,13 @@
 
 class BNO055 {//class for imu
     public: 
-        BNO055(I2C* i2c, int addr);//constructor
-        float readHeading(void);//class methods
+        BNO055(I2C* i2c, int addr);
+        float readHeading(void);
         float readRoll(void);
         float readPitch(void);
-        char checkID(void); //Check for proper communication with sensor
-        void setMode(int modeCode); //Set program to NDOF forge mode
-        int setAngleUnits(int unitsCode); //Select Euler Angles as units
+        char checkID(void); // Return 0xA0 if found BNO055 sensor
+        void setMode(int modeCode); // Set operating mode
+        int setAngleUnits(int unitsCode); // Select Euler Angles as units
     private:
         I2C* _i2c;
         int _addr; 
