@@ -20,7 +20,9 @@ class BNO055 {//class for imu
         float readPitch(void);
         char checkID(void); // Return 0xA0 if found BNO055 sensor
         void setMode(int modeCode); // Set operating mode
-        int setAngleUnits(int unitsCode); // Select Euler Angles as units
+        int setAngleUnits(int unitsCode); // Select rad or deg as units
+        int getGyroData(float omegas[3]);
+        int getEulerAngles(float eulers[3]);
     private:
         I2C* _i2c;
         int _addr; 
